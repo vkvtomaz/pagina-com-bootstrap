@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo Bootstrap</title>
+    
+    <!-- Bootstrap via cdn-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+        /* cores */
+        :root {
+            --custom-purple: #a3c9ea; /* Fundo roxo claro da navbar baseado na imagem */
+            --custom-purple-btn: #9cb3d9; /* Roxo dos botões dos cards */
+            --custom-purple-btn-hover: #8282c8;
+            --brand-purple: #5c7bf6; /* Roxo escuro do ícone "B" */
+        }
+
+        /* navbar */
+        .bg-custom-purple {
+            background-color: var(--custom-purple) !important;
+        }
+
+        /* buttons */
+        .btn-custom-purple {
+            background-color: var(--custom-purple-btn);
+            color: white;
+            border: none;
+        }
+        .btn-custom-purple:hover {
+            background-color: var(--custom-purple-btn-hover);
+            color: white;
+        }
+
+        /* icone */
+        .brand-icon-b {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--brand-purple);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        /* altura carousel */
+        .carousel-item img {
+            height: 450px;
+            object-fit: cover;
+        }
+
+        /* cor links */
+        .nav-tabs .nav-link {
+            color: var(--custom-purple-btn-hover);
+        }
+        .nav-tabs .nav-link.active {
+            color: #495057;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-custom-purple navbar-light shadow-sm">
+        <div class="container-fluid px-lg-4">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center fw-semibold text-dark" href="#">
+                <span class="brand-icon-b">B</span>
+                Estudo Bootstrap
+            </a>
+            
+            <!-- para mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarConteudo" aria-controls="navbarConteudo" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- links e barra de busca -->
+            <div class="collapse navbar-collapse" id="navbarConteudo">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-medium">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#secao-cards">Cards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#secao-tabs">Tabs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Primeira opção</a></li>
+                            <li><a class="dropdown-item" href="#">Segunda opção</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Terceira opção</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex ms-lg-3 mt-2 mt-lg-0" role="search">
+                    <input class="form-control me-2 rounded-1" type="search" placeholder="Procurar na página" aria-label="Search">
+                    <button class="btn btn-light rounded-1 px-4" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- carousel -->
+    <div id="carrosselInverno" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carrosselInverno" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carrosselInverno" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carrosselInverno" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/arvore-neve.jpg" class="d-block w-100" alt="Paisagem de inverno com árvores com neve">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/montanha-neve.jpg" class="d-block w-100" alt="Montanhas cobertas de neve">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/vale-neve.jpg" class="d-block w-100" alt="Vale congelado no inverno">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carrosselInverno" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carrosselInverno" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </div>
+
+    <!-- container principal -->
+    <div class="container my-5">
+        
+        <!-- cards -->
+        <section id="secao-cards">
+            <h2 class="mb-4">Cards</h2>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x200/e0e0e0/999999?text=100+%C3%97+50" class="card-img-top" alt="Placeholder 100x50">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Card 1</h5>
+                            <p class="card-text flex-grow-1">Conheça os cards do bootstrap e suas variações</p>
+                            <a href="#" class="btn btn-custom-purple w-100">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x200/e0e0e0/999999?text=100+%C3%97+50" class="card-img-top" alt="Placeholder 100x50">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Card 2</h5>
+                            <p class="card-text flex-grow-1">Conheça os cards do bootstrap e suas variações</p>
+                            <a href="#" class="btn btn-custom-purple w-100">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x200/e0e0e0/999999?text=100+%C3%97+50" class="card-img-top" alt="Placeholder 100x50">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Card 3</h5>
+                            <p class="card-text flex-grow-1">Conheça os cards do bootstrap e suas variações</p>
+                            <a href="#" class="btn btn-custom-purple w-100">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x200/e0e0e0/999999?text=100+%C3%97+50" class="card-img-top" alt="Placeholder 100x50">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Card 4</h5>
+                            <p class="card-text flex-grow-1">Conheça os cards do bootstrap e suas variações</p>
+                            <a href="#" class="btn btn-custom-purple w-100">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x200/e0e0e0/999999?text=100+%C3%97+50" class="card-img-top" alt="Placeholder 100x50">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Card 5</h5>
+                            <p class="card-text flex-grow-1">Conheça os cards do bootstrap e suas variações</p>
+                            <a href="#" class="btn btn-custom-purple w-100">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <img src="https://placehold.co/400x200/e0e0e0/999999?text=100+%C3%97+50" class="card-img-top" alt="Placeholder 100x50">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Card 6</h5>
+                            <p class="card-text flex-grow-1">Conheça os cards do bootstrap e suas variações</p>
+                            <a href="#" class="btn btn-custom-purple w-100">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5 border-light">
+
+        <!-- tabelas e tabs -->
+        <section id="secao-tabs" class="mb-5">
+            <h2 class="mb-4">Tabs</h2>
+            
+            <!-- Navegação das abas -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="postagens-tab" data-bs-toggle="tab" data-bs-target="#postagens" type="button" role="tab" aria-controls="postagens" aria-selected="true">Postagens</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tabelas-tab" data-bs-toggle="tab" data-bs-target="#tabelas" type="button" role="tab" aria-controls="tabelas" aria-selected="false">Tabelas</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="form-tab" data-bs-toggle="tab" data-bs-target="#form" type="button" role="tab" aria-controls="form" aria-selected="false">Formulário</button>
+                </li>
+            </ul>
+            
+            <!-- conteudo abas -->
+            <div class="tab-content pt-4" id="myTabContent">
+                
+                <!-- aba 1: Postagens -->
+                <div class="tab-pane fade show active" id="postagens" role="tabpanel" aria-labelledby="postagens-tab">
+                    <h3 class="mb-4">Conteúdo da Primeira Aba</h3>
+                    
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                        <!-- Card Postagem 1 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 2 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 3 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 4 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 5 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 6 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 7 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 8 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 9 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 10 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 11 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Postagem 12 -->
+                        <div class="col">
+                            <div class="card border-0 h-100">
+                                <img src="https://placehold.co/180x180/e0e0e0/999999?text=180+%C3%97+180" class="card-img-top rounded-0" alt="Placeholder 180x180">
+                                <div class="card-body px-0 pt-3">
+                                    <h5 class="card-title fw-semibold fs-6 mb-1">Título da postagem</h5>
+                                    <p class="card-text text-muted small mb-2">25/01/2026</p>
+                                    <a href="#" class="btn btn-custom-purple btn-sm">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- aba 2: Tabelas -->
+                <div class="tab-pane fade" id="tabelas" role="tabpanel" aria-labelledby="tabelas-tab">
+                    <h3 class="mb-4">Conteúdo da Segunda Aba</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover border">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Nome do Produto</th>
+                                    <th scope="col">Preço original</th>
+                                    <th scope="col">Preço atual</th>
+                                    <th scope="col">Desconto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Viagem 1</td>
+                                    <td>R$7.000,00</td>
+                                    <td>R$5.000,00</td>
+                                    <td>R$2.000,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Viagem 2</td>
+                                    <td>R$7.000,00</td>
+                                    <td>R$5.000,00</td>
+                                    <td>R$2.000,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Viagem 3</td>
+                                    <td>R$7.000,00</td>
+                                    <td>R$5.000,00</td>
+                                    <td>R$2.000,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-muted small">Tabela de produtos</p>
+                </div>
+                
+                <!-- aba 3: Formulário -->
+                <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+                    <h3 class="mb-4">Conteúdo da Terceira Aba</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="inputNome" class="form-label">Seu nome:</label>
+                            <input type="text" class="form-control" id="inputNome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Seu e-mail:</label>
+                            <input type="email" class="form-control" id="inputEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputMensagem" class="form-label">Sua mensagem:</label>
+                            <textarea class="form-control" id="inputMensagem" rows="4"></textarea>
+                        </div>
+                        <div class="form-check form-switch mb-4">
+                            <input class="form-check-input bg-primary border-primary" type="checkbox" role="switch" id="switchTermos" checked>
+                            <label class="form-check-label" for="switchTermos">Li e concordo com os termos do site</label>
+                        </div>
+                        <button type="submit" class="btn btn-success px-4">Enviar</button>
+                    </form>
+                </div>
+                
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle com Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+</body>
+</html>
