@@ -1,13 +1,13 @@
 # Estudo de Interface Responsiva com Bootstrap 5
 
-[![Deploy Status](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](#) <!-- Substitua o # pelo seu link da Vercel -->
+[![Deploy Status](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://pagina-com-bootstrap.vercel.app/) 
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.3-7952B3?logo=bootstrap&logoColor=white)](#)
 
 Este repositório contém um projeto de interface web desenvolvido como exercício prático para a consolidação de conceitos de front-end, design responsivo e componentes de User Interface (UI).
 
 ##  Live Demo
 O projeto está publicado e pode ser acessado através da Vercel:
-👉 **[Aceder ao Projeto](#)** *(Substitua o "#" pelo seu link gerado na Vercel)*
+👉 **[Acessar o Projeto](https://pagina-com-bootstrap.vercel.app/)**
 
 ## Tecnologias e Ferramentas
 *   **HTML5:** Estruturação semântica da página.
